@@ -357,8 +357,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     @Inject
-    public void setPresenter(Presenter presenter) {
-        mLoginPresenter = (LoginPresenter) presenter;
+    public void setPresenter(LoginPresenter aLoginPresenter) {
+        mLoginPresenter = aLoginPresenter;
     }
 }
 
