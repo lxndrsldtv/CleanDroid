@@ -12,13 +12,88 @@ android {
         versionCode 1
         versionName "0.1"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+
+        login_view {
+            applicationId "se.telia.homecare.gui.login"
+            versionName "0.1.login"
+            //manifestPlaceholders = [ mainActivityName:".gui.login.LoginActivity" ]
+        }
+
+        smscode_view {
+            applicationId "se.telia.homecare.gui.smscode"
+            versionName "0.1.smscode"
+            //manifestPlaceholders = [ mainActivityName:".gui.smscode.SMSCodeActivity" ]
+        }
+
+        full {
+            applicationId "com.as.cleandroid"
+            versionName "0.1.full"
+        }
+    }
+
+    sourceSets {
+
+        login_view {
+            java {
+                srcDirs = ["src/main/java",
+                           "src/viewcommon/java",
+                           "src/viewlogin/java"]
+            }
+            res {
+                srcDirs = ["src/main/res",
+                           "src/viewlogin/res"]
+            }
+            manifest.srcFile "src/viewlogin/AndroidManifest.xml"
+        }
+
+        smscode_view {
+            java {
+                srcDirs = ["src/main/java",
+                           "src/viewcommon/java",
+                           "src/viewsmscode/java"]
+            }
+            res {
+                srcDirs = ["src/main/res",
+                           "src/viewsmscode/res"]
+            }
+            manifest.srcFile "src/viewsmscode/AndroidManifest.xml"
+        }
+
+        full {
+            java {
+                srcDirs = ["src/main/java",
+                           "src/viewcommon/java",
+                           "src/viewlogin/java",
+                           "src/viewsmscode/java"]
+            }
+            res {
+                srcDirs = ["src/main/res",
+                           "src/viewlogin/res",
+                           "src/viewsmscode/res"]
+            }
+            manifest.srcFile "src/main/AndroidManifest.xml"
+        }
+    }
 }
+
+//android {
+//    packagingOptions {
+//        exclude 'META-INF/spring.tooling'
+//        exclude 'META-INF/spring.handlers'
+//        exclude 'META-INF/spring.schemas'
+//        exclude 'META-INF/license.txt'
+//        exclude 'META-INF/notice.txt'
+//    }
+//}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -33,6 +108,10 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+
+    //compile 'org.springframework.security:spring-security-core:4.1.0.RELEASE'
+
+    //compile project(path: ':login')
+    compile project(path: ':domain')
 }

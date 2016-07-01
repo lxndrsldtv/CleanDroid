@@ -7,19 +7,20 @@ import android.app.Application;
  */
 public class CleanDroid extends Application {
 
-    private LoginComponent mLoginComponent;
+//    private LoginComponent mLoginComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        mLoginComponent = DaggerLoginComponent.builder()
-                .appModule(new AppModule(this))
-                .loginModule(new LoginModule())
-                .build();
+//        mLoginComponent = DaggerLoginComponent.builder()
+//                .appModule(new AppModule(this))
+//                .loginModule(new LoginModule())
+//                .build();
+
     }
 
-    public LoginComponent getLoginComponent() {
-        return mLoginComponent;
-    }
+//    public LoginComponent getLoginComponent() {
+//        return mLoginComponent;
+//    }
 }

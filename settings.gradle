@@ -1,1 +1,5 @@
-include ':app'
+include ':app', ':security', ':domain'
+//, ':login'
+//, ':secure'
+//, ':springsecurity'
+//, ':alarmdomainmodel', ':security'
